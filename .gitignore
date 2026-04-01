@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+
+
+# Jupyter/VSCode
+.ipynb_checkpoints/
+.vscode/
+
+# Dataset
+FinancialNewsDataset/

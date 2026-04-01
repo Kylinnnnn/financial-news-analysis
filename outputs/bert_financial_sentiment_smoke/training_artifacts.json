@@ -1,0 +1,100 @@
+{
+  "config": {
+    "data_path": "dataset\\all-data.csv",
+    "output_dir": "outputs\\bert_financial_sentiment_full",
+    "model_name": "pretrained/prajjwal1-bert-tiny",
+    "max_length": 128,
+    "batch_size": 16,
+    "num_epochs": 3,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "train_size": 0.8,
+    "val_size": 0.1,
+    "test_size": 0.1,
+    "random_seed": 42,
+    "max_train_samples": null,
+    "max_eval_samples": null
+  },
+  "model_source": "pretrained\\prajjwal1-bert-tiny",
+  "local_files_only": true,
+  "label2id": {
+    "negative": 0,
+    "neutral": 1,
+    "positive": 2
+  },
+  "id2label": {
+    "0": "negative",
+    "1": "neutral",
+    "2": "positive"
+  },
+  "split_info": {
+    "full": 4846,
+    "train": 3876,
+    "val": 485,
+    "test": 485,
+    "config": {
+      "data_path": "dataset\\all-data.csv",
+      "output_dir": "outputs\\bert_financial_sentiment_full",
+      "model_name": "pretrained/prajjwal1-bert-tiny",
+      "max_length": 128,
+      "batch_size": 16,
+      "num_epochs": 3,
+      "learning_rate": 2e-05,
+      "weight_decay": 0.01,
+      "warmup_ratio": 0.1,
+      "train_size": 0.8,
+      "val_size": 0.1,
+      "test_size": 0.1,
+      "random_seed": 42,
+      "max_train_samples": null,
+      "max_eval_samples": null
+    },
+    "label_distribution": {
+      "train": {
+        "neutral": 2303,
+        "positive": 1090,
+        "negative": 483
+      },
+      "val": {
+        "neutral": 288,
+        "positive": 137,
+        "negative": 60
+      },
+      "test": {
+        "neutral": 288,
+        "positive": 136,
+        "negative": 61
+      }
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9984455604121518,
+      "val_loss": 0.9185018270246444,
+      "val_accuracy": 0.5938144329896907,
+      "val_macro_f1": 0.24838292367399742
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9023004154609554,
+      "val_loss": 0.8779394203616727,
+      "val_accuracy": 0.5958762886597938,
+      "val_macro_f1": 0.2625735846074829
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.8748472727865839,
+      "val_loss": 0.8646833031408249,
+      "val_accuracy": 0.6474226804123712,
+      "val_macro_f1": 0.36786211699164345
+    }
+  ],
+  "best_val_macro_f1": 0.36786211699164345,
+  "test_metrics": {
+    "loss": 0.8576316218222341,
+    "accuracy": 0.6247422680412371,
+    "macro_f1": 0.34003587409718444
+  }
+}
