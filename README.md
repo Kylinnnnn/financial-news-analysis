@@ -61,11 +61,43 @@ Notes:
 - The model is loaded from local pretrained assets first.
 
 ## Inference
+Use `outputs/bert_financial_sentiment_es50_p5/best` as default model directory and use `outputs/bert_financial_sentiment_es50_p5/training_artifacts.json` as default artifacts path
 
+**One-time usage**:
 ```powershell
-python predict.py --model-dir outputs/bert_financial_sentiment_es50_p5/best --artifacts outputs/bert_financial_sentiment_es50_p5/training_artifacts.json --text "The company posted stronger earnings and raised its full-year guidance"
+python predict.py --text "The company posted stronger earnings and raised its full-year guidance"
 ```
 
+**Use as a module and transfer text list**:
+```python
+# your python file
+from predict import predict_sentiment
+
+strs = ["This is str1","This is str2","This is str3"]
+
+# example return 
+# [
+#   {
+#       "text":"This is str1",
+#       "predicted_label": "label result",
+#       "confidence": "confidence score",
+#       "scores": "scores for each label"
+#   }，
+#   {
+#       "text":"This is str2",
+#       "predicted_label": "label result",
+#       "confidence": "confidence score",
+#       "scores": "scores for each label"
+#   }，
+#   {
+#       "text":"This is str3",
+#       "predicted_label": "label result",
+#       "confidence": "confidence score",
+#       "scores": "scores for each label"
+#   }，
+# ]
+results = predict_sentiment(texts=strs)
+```
 Output fields:
 
 - Predicted label
