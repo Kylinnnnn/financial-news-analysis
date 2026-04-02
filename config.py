@@ -9,7 +9,7 @@ class TrainingConfig:
     model_name: str = "pretrained/prajjwal1-bert-tiny"
     max_length: int = 128
     batch_size: int = 16
-    num_epochs: int = 1
+    num_epochs: int = 50
     learning_rate: float = 2e-5
     weight_decay: float = 0.01
     warmup_ratio: float = 0.1

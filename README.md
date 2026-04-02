@@ -54,6 +54,11 @@ python train.py ^
   --early-stop-min-delta 0.001 ^
   --clean-output
 ```
+or
+```powershell
+python train.py --clean-output
+```
+also works
 
 Notes:
 

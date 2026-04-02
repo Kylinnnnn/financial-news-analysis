@@ -46,7 +46,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-name", type=str, default="pretrained/prajjwal1-bert-tiny"
     )
-    parser.add_argument("--epochs", type=int, default=1)
+    parser.add_argument("--epochs", type=int, default=50)
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--lr", type=float, default=2e-5)
     parser.add_argument("--weight-decay", type=float, default=0.01)
@@ -55,8 +55,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-eval-samples", type=int, default=None)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--hub-model-id", type=str, default="prajjwal1/bert-tiny")
-    parser.add_argument("--early-stop-patience", type=int, default=2)
-    parser.add_argument("--early-stop-min-delta", type=float, default=0.0)
+    parser.add_argument("--early-stop-patience", type=int, default=5)
+    parser.add_argument("--early-stop-min-delta", type=float, default=0.001)
     parser.add_argument(
         "--clean-output",
         action=argparse.BooleanOptionalAction,
