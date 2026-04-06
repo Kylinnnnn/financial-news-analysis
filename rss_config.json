@@ -1,0 +1,16 @@
+{
+  "feeds": [
+    {
+      "source": "Reuters Business",
+      "url": "https://feeds.reuters.com/reuters/businessNews"
+    },
+    {
+      "source": "CNBC Finance",
+      "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html"
+    },
+    {
+      "source": "MarketWatch Top Stories",
+      "url": "http://feeds.marketwatch.com/marketwatch/topstories/"
+    }
+  ]
+}
