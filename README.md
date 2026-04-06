@@ -137,10 +137,19 @@ What was not changed:
 
 ### RSS Usage
 
-Activate the project environment first:
+Prepare a Python environment that satisfies the project dependencies first.
+Using the packages in `environment.yml` is recommended.
+
+Minimum runtime requirements for the RSS pipeline:
+
+- Python
+- `torch`
+- `transformers`
+- `pandas`
+
+If you hit an OpenMP conflict on Windows, set the following environment variable before running:
 
 ```powershell
-conda activate MechineLearning
 $env:KMP_DUPLICATE_LIB_OK='TRUE'
 ```
 
