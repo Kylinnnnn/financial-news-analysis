@@ -1,0 +1,44 @@
+{
+  "feeds": [
+    {
+      "source_id": "gn_ai_capex",
+      "name": "AI Capex Search",
+      "url": "https://news.google.com/rss/search?q=%22AI%20datacenter%22%20OR%20NVIDIA%20OR%20semiconductor&hl=en-US&gl=US&ceid=US:en",
+      "max_age_hours": 72,
+      "required_keywords": ["nvidia", "amd", "gpu", "semiconductor"],
+      "min_keyword_hits": 1
+    },
+    {
+      "source_id": "gn_us_macro",
+      "name": "US Macro Search",
+      "url": "https://news.google.com/rss/search?q=Federal%20Reserve%20OR%20Treasury%20OR%20liquidity%20OR%20inflation&hl=en-US&gl=US&ceid=US:en",
+      "max_age_hours": 72,
+      "required_keywords": ["federal reserve", "treasury", "inflation", "rates"],
+      "min_keyword_hits": 1
+    },
+    {
+      "source_id": "gn_china_policy",
+      "name": "China Policy Search",
+      "url": "https://news.google.com/rss/search?q=China%20tech%20policy%20OR%20platform%20economy%20OR%20semiconductor&hl=en-US&gl=US&ceid=US:en",
+      "max_age_hours": 96,
+      "required_keywords": ["china", "policy", "economy", "semiconductor"],
+      "min_keyword_hits": 1
+    },
+    {
+      "source_id": "gn_energy_shipping",
+      "name": "Energy Shipping Search",
+      "url": "https://news.google.com/rss/search?q=oil%20shipping%20OR%20insurance%20OR%20sanctions%20OR%20Hormuz&hl=en-US&gl=US&ceid=US:en",
+      "max_age_hours": 72,
+      "required_keywords": ["oil", "shipping", "hormuz", "crude"],
+      "min_keyword_hits": 1
+    },
+    {
+      "source_id": "gn_gold_btc",
+      "name": "Gold BTC Risk Search",
+      "url": "https://news.google.com/rss/search?q=gold%20OR%20bitcoin%20OR%20risk-off%20OR%20safe%20haven&hl=en-US&gl=US&ceid=US:en",
+      "max_age_hours": 72,
+      "required_keywords": ["gold", "bitcoin", "btc", "dollar"],
+      "min_keyword_hits": 1
+    }
+  ]
+}

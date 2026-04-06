@@ -2,6 +2,8 @@
 
 This project fine-tunes a pretrained BERT model on financial news headlines from `dataset/all-data.csv` and supports reproducible training with clean logs, early stopping, and report-friendly artifacts.
 
+It now also includes an isolated `rss_module/` that fetches finance-relevant RSS headlines, cleans them, and sends cleaned titles into the existing prediction pipeline without changing the original training/inference structure.
+
 ## Dataset
 
 - File: `dataset/all-data.csv`
@@ -108,6 +110,88 @@ Output fields:
 - Predicted label
 - Confidence (max softmax probability)
 - Scores (per-class probabilities)
+
+## RSS Module
+
+The repository now includes a new folder:
+
+- `rss_module/`
+
+This folder adds RSS fetching and cleaning only. The original model files remain where they were, and `rss_module/run_rss_pipeline.py` imports the existing root-level `predict.py`.
+
+What was added:
+
+- `rss_module/feeds.json`
+  Finance-focused Google News RSS source list with small keyword gates
+- `rss_module/fetch_clean_news.py`
+  RSS XML parsing, headline cleaning, age filtering, de-duplication, and light relevance filtering
+- `rss_module/run_rss_pipeline.py`
+  End-to-end RSS fetch + prediction runner using the existing sentiment model
+
+What was not changed:
+
+- `train.py`
+- `predict.py`
+- the model architecture
+- the existing training outputs
+
+### RSS Usage
+
+Activate the project environment first:
+
+```powershell
+conda activate MechineLearning
+$env:KMP_DUPLICATE_LIB_OK='TRUE'
+```
+
+Run the full RSS pipeline from the repository root:
+
+```powershell
+python -m rss_module.run_rss_pipeline
+```
+
+Optional arguments:
+
+```powershell
+python -m rss_module.run_rss_pipeline --max-items-per-feed 6 --timeout-sec 10
+```
+
+### RSS Input
+
+The RSS pipeline does not require manual text input.
+
+It reads source definitions from:
+
+- `rss_module/feeds.json`
+
+The model input is the cleaned RSS `title` only.
+`summary` is stored for inspection but is not sent into the model.
+
+### RSS Output
+
+RSS pipeline outputs are written to:
+
+- `outputs/rss_module/rss_items.json`
+- `outputs/rss_module/predictions.json`
+- `outputs/rss_module/predictions.csv`
+
+`rss_items.json` contains cleaned source items:
+
+- `id`
+- `source`
+- `source_id`
+- `title`
+- `summary`
+- `url`
+- `published_at`
+
+`predictions.json` and `predictions.csv` add:
+
+- `predicted_label`
+- `confidence`
+- `scores`
+
+The CSV is written as `utf-8-sig` so Excel on Windows can display punctuation correctly.
 
 ## Output Structure
 
